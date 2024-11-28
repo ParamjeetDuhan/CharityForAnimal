@@ -1,11 +1,13 @@
 import React from 'react';
+import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
   return (
-    <div>
-      <h1 className='bg-slate-600'>hello</h1>
-      <h1>hello my friend param</h1>
-    </div>
+    <>
+      <main>
+        <Navbar/>
+      </main>
+    </>
   )
 };
 
