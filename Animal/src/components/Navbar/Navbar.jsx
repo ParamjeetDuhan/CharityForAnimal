@@ -16,7 +16,7 @@ const Navbar = () => {
                         <ul>
                             <li className='group relative cursor-pointer'>
                                 <a href="#" className='flex items-center gap-[2px] h-[72px]'>
-                                    Home{""}
+                                    ABOUT{""}
                                       <span>
                                       <FaCaretDown className='group-hover:rotate-180' />
                                       </span>
