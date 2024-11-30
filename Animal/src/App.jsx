@@ -8,11 +8,13 @@ import About from './Pages/About';
 import Home from './components/Home/Home';
 import Contact from './Pages/Contact';
 import Footers from './components/Footer/Footers';
+import SignUp from './Pages/AuthPages/SignUp';
+import Login from './Pages/AuthPages/Login';
 
 const App = () => {
   return (
     <Router>
-        <Navbar/>
+       <Navbar/>
         <Routes>
          <Route path="/" element={<Home/>}/>
           <Route path="/Gallery" element={<Gallery />} />
@@ -20,6 +22,8 @@ const App = () => {
           <Route path="/Privacy" element={<Privacy/>} />
           <Route path="/About" element={<About/>} />
           <Route path="/Call" element={<Contact/>}/>
+          <Route path="/SignUp" element={<SignUp/>}/>
+          <Route path="/Login" element={<Login/>}/>
         </Routes>
         <Footers/>
     </Router>
