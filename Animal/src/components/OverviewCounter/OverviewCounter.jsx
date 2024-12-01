@@ -21,7 +21,7 @@ const OverviewCounter = () => {
                       enableScrollSpy={true}
                       scrollSpyOnce={true}
                       start={0}
-                      end={234}
+                      end={0}
                       suffix='+'
                       duration={2.75}
                     />  
@@ -36,7 +36,7 @@ const OverviewCounter = () => {
                       enableScrollSpy={true}
                       scrollSpyOnce={true}
                       start={0}
-                      end={56}
+                      end={0}
                       suffix='+'
                       duration={2.75}
                     />
@@ -50,7 +50,7 @@ const OverviewCounter = () => {
                       enableScrollSpy={true}
                       scrollSpyOnce={true}
                       start={0}
-                      end={234}  
+                      end={0}  
                       suffix='k+'                     
                     />
                 </h1>
@@ -63,7 +63,7 @@ const OverviewCounter = () => {
                        enableScrollSpy={true}
                        scrollSpyOnce={true}
                        start={-875.039}
-                       end={160527.012}
+                       end={0}
                        duration={2.75}
                        seperator=' ' 
                        suffix='+'
