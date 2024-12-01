@@ -7,8 +7,6 @@ function Home() {
   return (
     <div>
           <Hero/>
-          <OverviewCounter/>
-          <OverVision/>
     </div>
   )
 }

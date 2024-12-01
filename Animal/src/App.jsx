@@ -12,7 +12,6 @@ import LoginPage from "./Pages/AuthPages/LoginPage";
 import SignUpPage from "./Pages/AuthPages/SignUpPage";
 import ForgetPasswordPage from "./Pages/AuthPages/ForgetPasswordPage.jsX";
 import ResetPasswordPage from "./Pages/AuthPages/ResetPasswordPage";
-import ProfilePage from "./Pages/AuthPages/ProfilePage";
 
 const App = () => {
   return (
@@ -29,7 +28,6 @@ const App = () => {
         <Route path="/SignUpPage" element={<SignUpPage/>}/>
         <Route path="/ForgetPage" element={<ForgetPasswordPage/>}/>
         <Route path="/ResetPage" element={<ResetPasswordPage/>}/>
-        <Route path="/Profile" element={<ProfilePage/>}/>
       </Routes>
       <Footers />
     </Router>

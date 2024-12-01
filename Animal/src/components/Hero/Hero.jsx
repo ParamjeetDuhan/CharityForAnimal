@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from "framer-motion"; // Import motion for animations
 import { Link } from 'react-router';
+import OurVision from '../OurVision/OurVision';
+import OverviewCounter from '../OverviewCounter/OverviewCounter';
 
 const FadeUp = (delay) => ({
     initial: { opacity: 0, y: 30 },
@@ -148,6 +150,9 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+            <OverviewCounter/>
+            <hr/>
+            <OurVision/>
         </div>
     );
 };
