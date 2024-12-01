@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion"; // Import motion for animations
+import { Link } from 'react-router';
 
 const FadeUp = (delay) => ({
     initial: { opacity: 0, y: 30 },
@@ -64,22 +65,22 @@ const Hero = () => {
                                 Together, we can create a brighter future for stray animals. Whether through volunteering, donating, or adopting, your support helps us bring hope and love to countless lives.
                             </motion.p>
                             <div className="space-x-4 mt-6">
-                                <motion.button 
+                                <Link to="/SignUpPage"><motion.button 
                                     variants={FadeUp(0.6)}
                                     initial="initial"
                                     animate="animate"
                                     className="btn-primary"
                                 >
                                     Get Started
-                                </motion.button>
-                                <motion.button
+                                </motion.button></Link>
+                                <Link to="/Login"><motion.button
                                     variants={FadeUp(0.8)}
                                     initial="initial"
                                     animate="animate"
                                     className="btn-outline"
                                 >
                                     Login
-                                </motion.button>
+                                </motion.button></Link>
                             </div>
                         </div>
 

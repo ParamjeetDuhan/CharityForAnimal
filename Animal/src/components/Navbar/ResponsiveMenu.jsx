@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const ResponsiveMenu = ({showMenu}) => {
   return (
@@ -11,7 +11,7 @@ const ResponsiveMenu = ({showMenu}) => {
         <div>
             {/* user section */}
             <div className='flex items-center justify-start gap-3'>
-            <FaUserCircle  size={90}/>
+            <Link to="/Profile"><FaUserCircle  size={90}/></Link>
             <div>
             <h1 className='text-xl font-semibold'>ParamJeet Singh</h1>
             <h1 className='text-sm text-slate-500'>+27387394</h1>

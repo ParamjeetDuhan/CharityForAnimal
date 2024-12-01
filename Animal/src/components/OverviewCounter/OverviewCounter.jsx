@@ -11,7 +11,7 @@ const OverviewCounter = () => {
       className='container h-12 md:h-32 p-3'
     >
         <div className='mx-auto my-4 grid w-full grid-cols-4
-        divide-x divide-slate-700 bg-white p-2
+        divide-x divide-slate-700 bg-primary p-2
         shadow-lg dark:bg-gray-800 dark:text-white/70 md:max-w-[800px]
         lg:-translate-y-20 md:p-8'>
             <div className='flex flex-col items-center justify-center'>

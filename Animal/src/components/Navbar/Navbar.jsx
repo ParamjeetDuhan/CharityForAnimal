@@ -6,6 +6,7 @@ import { BiSolidSun } from "react-icons/bi";
 import { BiSolidMoon } from "react-icons/bi";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { HiMenuAlt3 } from "react-icons/hi";
+import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router';
 
 const Navbar = () => {
@@ -59,8 +60,9 @@ const Navbar = () => {
                             <li>
                               <div className='flex items-center gap-4'>
                                 {/*icon here */}
-                                <div>
-                               <Link to="/Call"><BiPhoneCall  className='text-2xl h-[40px] w-[40px] rounded-md text-white bg-primary hover:bg-primary/90 p-2'/></Link> 
+                                <div className='grid grid-cols-1 md:grid-cols-2 gap-16  p-2'> 
+                                <Link to="/Profile"><FaUserCircle  className=' text-2xl h-[40px] w-[40px] rounded-md text-white bg-primary hover:bg-primary/90 p-2'/></Link> 
+                               <Link to="/Call"><BiPhoneCall  className=' text-2xl h-[40px] w-[40px] rounded-md text-white bg-primary hover:bg-primary/90 p-2'/></Link> 
                                 </div>
                                 {/*Mobile no. */}
                                 <div>
