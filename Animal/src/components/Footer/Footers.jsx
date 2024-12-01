@@ -38,10 +38,8 @@ const Footers = () => {
               </a>
             </h1>
             <p className="text-justify text-sm md:text-base">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              quas doloribus minima odit mollitia minus deserunt qui, explicabo
-              necessitatibus, amet dolore corrupti laborum ea perspiciatis
-              doloremque adipisci tempora, molestias libero.
+          
+"Every stray animal deserves a chance at love, care, and a better life. Together, we can be the voice they need and the change they deserve—because kindness to animals is kindness to the world. By extending compassion, we not only transform their lives but also enrich our own, creating a more humane and harmonious future for all beings."
             </p>
             <div className="flex items-center gap-3 mt-3">
               <FaLocationArrow />

@@ -36,11 +36,17 @@ const Hero = () => {
 
     return (
         <div>
-            <div className="min-h-[650px] md:min-h-[750px] bg-gradient-to-r from-black to-primary pt-10 pb-10 md:pt-36">
+            <div 
+                className="min-h-[650px] md:min-h-[750px] bg-gradient-to-r from-black to-primary pt-10 pb-10 md:pt-36"
+                style={{ paddingTop: 'calc(64px + 1rem)' }} // Dynamically adjust based on navbar height
+            >
                 <div className="container px-4 mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12 text-white">
+                    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12 text-white ">
                         {/* Hero Text section */}
-                        <div className="flex flex-col items-center text-center gap-5 lg:items-start lg:text-left lg:max-w-[450px]">
+                        <div 
+                            className="flex flex-col items-center text-center gap-5 lg:items-start lg:text-left lg:max-w-[450px] mt-28  mx-10"
+                            style={{ overflow: 'hidden' }} // Prevent text from overlapping
+                        >
                             <motion.h1 
                                 variants={FadeUp(0.2)}
                                 initial="initial"
@@ -55,9 +61,7 @@ const Hero = () => {
                                 animate="animate"
                                 className="text-base sm:text-lg lg:text-xl"
                             >
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit Mollitia vel
-                                odio perspiciatis ab eligendi ex aut quam repudiandae odit doloremque
-                                quos unde sed sequi ipsum quidem Ex corrupti ipsa animi
+                                Together, we can create a brighter future for stray animals. Whether through volunteering, donating, or adopting, your support helps us bring hope and love to countless lives.
                             </motion.p>
                             <div className="space-x-4 mt-6">
                                 <motion.button 
@@ -81,10 +85,10 @@ const Hero = () => {
 
                         {/* Form section */}
                         <motion.div
-                            initial={{opacity: 0, x:100}}
-                            animate={{opacity: 1, x:0}}
-                            transition={{type: "spring", stiffness: 100}}
-                            className="w-full md:w-[400px] mx-auto p-4 bg-white dark:bg-black text-black dark:text-white rounded-2xl shadow-md"
+                            initial={{ opacity: 0, x: 100 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ type: "spring", stiffness: 100 }}
+                            className="w-full md:w-[400px] max-w-full mx-auto p-4 bg-white dark:bg-black text-black dark:text-white rounded-2xl shadow-md mt-28"
                         >
                             <div>
                                 <h1 className="text-lg text-center font-semibold mb-6">
@@ -148,3 +152,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
