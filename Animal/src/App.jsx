@@ -34,6 +34,11 @@ const App = () => {
       <Footers />
     </Router>
   );
+
+
+
+
+  
 };
 
 export default App;
