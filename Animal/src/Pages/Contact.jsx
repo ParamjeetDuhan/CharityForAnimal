@@ -44,7 +44,7 @@ function Contact() {
               <li><span className='text-primary font-bold'>Email</span>:Paramjeetsingh16346@gmail.com</li>
               <li><span className='text-primary font-bold'>PHONE</span>:+91 8923500783</li>
             </ul>
-            <img src={img1} alt="param Image" className='w-60 h-60 ml-60 rounded-full'/>
+            <img src="" alt="Priyanshi Image" className='w-60 h-60 ml-60 rounded-full'/>
           </div>
         </div>
         <h1 className='text-white text-2xl font-semibold'>General Inquiries</h1>
