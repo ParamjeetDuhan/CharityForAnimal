@@ -8,8 +8,15 @@ import { HiMenuAlt1 } from "react-icons/hi";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router';
+import { useNavigate } from 'react-router';
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+
+const token = localStorage.getItem("token");
+const username = localStorage.getItem("username");
+
   const [theme , setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
   const [showMenu , setShowMenu] = useState(false);
   const element = document.documentElement;
@@ -28,6 +35,13 @@ const Navbar = () => {
       localStorage.setItem("theme" , "light");
     }
   }, [theme])
+
+  const handleout = ()=>{
+        localStorage.removeItem("token")
+        localStorage.removeItem("username");
+        alert("logout succesfully");
+        navigate("/Login");
+  }
   return (
     <>
       <nav className='bg-gradient-to-l from-violet-900 via-violet-800 to-violet-900 text-white  top-left-0 w-full border-b-[1px] border-primary/50 fixed top-0'>
@@ -57,6 +71,18 @@ const Navbar = () => {
                                       </div>
                             </li>
                             <Link to="/About"><li>About us</li></Link>
+                            { token ? (
+                              <>
+                                       <Link to="#"><li>Welcome:{username}</li></Link>
+                            <Link to="/Login" onClick={handleout}><li>Logout</li></Link>
+                              </>
+                            ):(
+                              <>
+                               <Link to="/Login"><li>Login</li></Link>
+                            <Link to="/SignUpPage"><li>Register</li></Link>
+                              </>
+                            )
+                          }
                             <li>
                               <div className='flex items-center gap-4'>
                                 {/*icon here */}

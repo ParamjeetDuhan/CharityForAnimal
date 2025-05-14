@@ -1,31 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
-
-  // Handle input change
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
-  };
 
   // Validate the form
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Full Name is required.";
+    if (!formData.username.trim()) {
+      newErrors.username = "Full Name is required.";
     }
 
     if (!formData.email.trim()) {
@@ -40,23 +33,24 @@ const SignUpPage = () => {
       newErrors.password = "Password must be at least 6 characters.";
     }
 
-    if (formData.confirmPassword !== formData.password) {
-      newErrors.confirmPassword = "Passwords do not match.";
-    }
-
     setErrors(newErrors);
 
-    // Return true if no errors
     return Object.keys(newErrors).length === 0;
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log("Form submitted:", formData);
-      alert("Sign-up successful!");
-      // Optionally, navigate to a different page or clear the form
+    if (!validateForm()) return;
+
+    try {
+      const res = await axios.post("http://localhost:9000/api/v1/user/register", formData);
+      if (res) {
+        alert(res.data.message);
+        navigate("/Login");
+      }
+    } catch (error) {
+      alert(error.response?.data?.message || "Registration failed.");
     }
   };
 
@@ -66,30 +60,33 @@ const SignUpPage = () => {
         <h2 className="text-2xl font-bold text-center text-gray-700">Sign Up</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="name">
+            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
               Full Name
             </label>
             <input
-              id="name"
+              id="username"
               type="text"
-              value={formData.name}
-              onChange={handleChange}
+              name="username"
+              value={formData.username}
+              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
               className={`w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none ${
-                errors.name ? "border-red-500" : "focus:ring-2 focus:ring-blue-400"
+                errors.username ? "border-red-500" : "focus:ring-2 focus:ring-blue-400"
               }`}
               placeholder="Enter your full name"
             />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+            {errors.username && <p className="text-red-500 text-sm mt-1">{errors.username}</p>}
           </div>
+
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="email">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email Address
             </label>
             <input
               id="email"
               type="email"
+              name="email"
               value={formData.email}
-              onChange={handleChange}
+              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
               className={`w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none ${
                 errors.email ? "border-red-500" : "focus:ring-2 focus:ring-blue-400"
               }`}
@@ -97,15 +94,17 @@ const SignUpPage = () => {
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
+
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="password">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               Password
             </label>
             <input
               id="password"
               type="password"
+              name="password"
               value={formData.password}
-              onChange={handleChange}
+              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
               className={`w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none ${
                 errors.password ? "border-red-500" : "focus:ring-2 focus:ring-blue-400"
               }`}
@@ -113,27 +112,7 @@ const SignUpPage = () => {
             />
             {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
           </div>
-          <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-              htmlFor="confirmPassword"
-            >
-              Confirm Password
-            </label>
-            <input
-              id="confirmPassword"
-              type="password"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              className={`w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none ${
-                errors.confirmPassword ? "border-red-500" : "focus:ring-2 focus:ring-blue-400"
-              }`}
-              placeholder="Confirm your password"
-            />
-            {errors.confirmPassword && (
-              <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
-            )}
-          </div>
+
           <button
             type="submit"
             className="w-full px-4 py-2 text-white bg-primary rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -141,6 +120,7 @@ const SignUpPage = () => {
             Sign Up
           </button>
         </form>
+
         <p className="text-sm text-center text-gray-600">
           Already have an account?{" "}
           <Link to="/Login" className="text-blue-500 hover:underline">
@@ -153,7 +133,3 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
-
-
-
-

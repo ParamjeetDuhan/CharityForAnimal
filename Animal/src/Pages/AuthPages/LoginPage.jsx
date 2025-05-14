@@ -1,53 +1,35 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  // State to manage form data
+   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  // State to manage form errors
-  const [error, setError] = useState("");
 
-  // Handle input changes
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
-  };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Clear previous errors
-
-    // Simple validation to check if both fields are filled
-    if (!formData.email || !formData.password) {
-      setError("Please fill in all fields.");
-      return;
-    }
-
-    // Mock authentication check (replace with actual API call)
-    const validEmail = "Paramjeetsingh67616@gmail.com";
-    const validPassword = "Param@123";
-
-    if (formData.email === validEmail && formData.password === validPassword) {
-      alert("Login successful!");
-      // Redirect or perform further actions here, e.g., redirecting to a dashboard
-    } else {
-      setError("Invalid email or password."); // Show error message for invalid credentials
-    }
+   try {
+     const res =  await axios.post("http://localhost:9000/api/v1/user/login",formData);
+     alert(res.data.message);
+      localStorage.setItem("token",res.data.token);
+             localStorage.setItem("username",res.data.name);
+     navigate("/")
+   } catch (error) {
+      alert(error.response.data.message);
+   }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-t from-primary to-black">
       <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-md rounded-lg">
         <h2 className="text-2xl font-bold text-center text-gray-700">Login</h2>
-        {error && <p className="text-red-500 text-sm text-center">{error}</p>}
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block text-sm font-medium text-gray-700" htmlFor="email">
@@ -56,8 +38,9 @@ const LoginPage = () => {
             <input
               id="email"
               type="email"
+              name="email"
               value={formData.email}
-              onChange={handleChange}
+              onChange={(e)=>{setFormData({...formData,[e.target.name]:e.target.value})}}
               required
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your email"
@@ -70,8 +53,9 @@ const LoginPage = () => {
             <input
               id="password"
               type="password"
+              name="password"
               value={formData.password}
-              onChange={handleChange}
+              onChange={(e)=>{setFormData({...formData,[e.target.name]:e.target.value})}}
               required
               className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your password"

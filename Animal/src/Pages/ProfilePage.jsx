@@ -9,7 +9,6 @@ const ProfilePage = () => {
     phone: "+1 234 567 890",
     address: "123 Main St, Anytown, USA",
     bio: "A passionate web developer and designer.",
-    Amount_Donated:"5000"
   });
 
   const [isEditing, setIsEditing] = useState(false); // Track if the user is in editing mode

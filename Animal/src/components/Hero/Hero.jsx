@@ -66,24 +66,6 @@ const Hero = () => {
                             >
                                 Together, we can create a brighter future for stray animals. Whether through volunteering, donating, or adopting, your support helps us bring hope and love to countless lives.
                             </motion.p>
-                            <div className="space-x-4 mt-6">
-                                <Link to="/SignUpPage"><motion.button 
-                                    variants={FadeUp(0.6)}
-                                    initial="initial"
-                                    animate="animate"
-                                    className="btn-primary"
-                                >
-                                    Get Started
-                                </motion.button></Link>
-                                <Link to="/Login"><motion.button
-                                    variants={FadeUp(0.8)}
-                                    initial="initial"
-                                    animate="animate"
-                                    className="btn-outline"
-                                >
-                                    Login
-                                </motion.button></Link>
-                            </div>
                         </div>
 
                         {/* Form section */}
