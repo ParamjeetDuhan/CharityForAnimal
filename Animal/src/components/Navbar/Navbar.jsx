@@ -15,7 +15,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
 const token = localStorage.getItem("token");
-const username = localStorage.getItem("username");
 
   const [theme , setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
   const [showMenu , setShowMenu] = useState(false);
@@ -73,7 +72,6 @@ const username = localStorage.getItem("username");
                             <Link to="/About"><li>About us</li></Link>
                             { token ? (
                               <>
-                                       <Link to="#"><li>Welcome:{username}</li></Link>
                             <Link to="/Login" onClick={handleout}><li>Logout</li></Link>
                               </>
                             ):(
