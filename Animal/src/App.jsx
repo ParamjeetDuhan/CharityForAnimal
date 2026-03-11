@@ -13,7 +13,7 @@ import ForgetPasswordPage from "./Pages/AuthPages/ForgetPasswordPage.jsx";
 import ResetPasswordPage from "./Pages/AuthPages/ResetPasswordPage";
 import ProfilePage from "./Pages/ProfilePage.jsx";
 import Hero from "./components/Hero/Hero.jsx";
-import PrivateRoute from "./services/Protected";  // Import PrivateRoute
+import PrivateRoute from "./services/Protected"; 
 
 const App = () => {
   return (
